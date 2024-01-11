@@ -1,10 +1,10 @@
 Name:           virtiofsd
-Version:        1.5.0
+Version:        1.7.2
 Release:        1%{?dist}
 Summary:        Virtio-fs vhost-user device daemon (Rust version)
 
 # Upstream license specification: Apache-2.0 AND BSD-3-Clause
-License:        ASL 2.0 and BSD
+License:        Apache-2.0 AND BSD-3-Clause
 URL:            https://gitlab.com/virtio-fs/virtiofsd
 Source0:        %{crates_source}
 Source1:        %{name}-%{version}-vendor.tar.gz
@@ -41,6 +41,12 @@ install -D -p -m 0644 50-qemu-virtiofsd.json %{buildroot}%{_datadir}/qemu/vhost-
 %{_datadir}/qemu/vhost-user/50-qemu-virtiofsd.json
 
 %changelog
+* Tue Jul 18 2023 German Maglione <gmaglione@redhat.com> - 1.7.2-1
+- Update to upstream version 1.7.2 [bz#2233498]
+
+* Tue Jul 18 2023 German Maglione <gmaglione@redhat.com> - 1.7.0-1
+- Update to upstream version 1.7.0 [bz#2222221]
+
 * Thu Dec 22 2022 German Maglione <gmaglione@redhat.com> - 1.5.0-1
 - Update to upstream version 1.5.0 [bz#2123070]
 
