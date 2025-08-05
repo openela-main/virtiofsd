@@ -1,5 +1,5 @@
 Name:           virtiofsd
-Version:        1.13.0
+Version:        1.13.2
 Release:        1%{?dist}
 Summary:        Virtio-fs vhost-user device daemon (Rust version)
 
@@ -17,6 +17,8 @@ Provides: virtiofsd
 Obsoletes: qemu-virtiofsd = 17:6.2.0
 # Both qemu-virtiofsd and virtiofsd ship the same binary
 Conflicts: qemu-virtiofsd = 17:6.2.0
+
+Requires:       shadow-utils
 
 %description
 %{summary}.
@@ -41,6 +43,11 @@ install -D -p -m 0644 50-virtiofsd.json %{buildroot}%{_datadir}/qemu/vhost-user/
 %{_datadir}/qemu/vhost-user/50-virtiofsd.json
 
 %changelog
+* Mon Jun 16 2025 Miroslav Rezanina <mrezanin@redhat.com> - 1.13.2-1
+- Rebase to 1.13.2 [RHEL-96976]
+- Resolves: RHEL-96976
+  (Rebase virtiofsd to latest version for RHEL 9.6.z)
+
 * Mon Dec 02 2024 Miroslav Rezanina <mrezanin@redhat.com> - 1.13.0-1
 - Update to upstream version 1.13.0 [RHEL-69134]
 - Resolves: RHEL-69134
