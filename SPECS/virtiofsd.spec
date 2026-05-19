@@ -1,5 +1,5 @@
 Name:           virtiofsd
-Version:        1.13.2
+Version:        1.13.3
 Release:        1%{?dist}
 Summary:        Virtio-fs vhost-user device daemon (Rust version)
 
@@ -43,6 +43,11 @@ install -D -p -m 0644 50-virtiofsd.json %{buildroot}%{_datadir}/qemu/vhost-user/
 %{_datadir}/qemu/vhost-user/50-virtiofsd.json
 
 %changelog
+* Thu Dec 04 2025 Miroslav Rezanina <mrezanin@redhat.com> - 1.13.3-1
+- Rebase to 1.13.3 [RHEL-133032]
+- Resolves: RHEL-133032
+  (Rebase virtiofsd to latest version for RHEL 9.8)
+
 * Mon Jun 16 2025 Miroslav Rezanina <mrezanin@redhat.com> - 1.13.2-1
 - Rebase to 1.13.2 [RHEL-96976]
 - Resolves: RHEL-96976
