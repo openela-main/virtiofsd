@@ -1,5 +1,5 @@
 Name:           virtiofsd
-Version:        1.13.2
+Version:        1.13.3
 Release:        1%{?dist}
 Summary:        Virtio-fs vhost-user device daemon (Rust version)
 
@@ -14,11 +14,7 @@ Source1:        %{name}-%{version}-vendor.tar.gz
 ExclusiveArch:  %{rust_arches}
 # Some of our deps (i.e. vm-memory) are not available on 32 bits targets.
 # In addition, there's no ppc64 qemu-kvm available for RHEL.
-%if 0%{?rhel}
 ExcludeArch:    i686 %{power64}
-%else
-ExcludeArch:    i686
-%endif
 
 %if 0%{?rhel}
 BuildRequires:  rust-toolset
@@ -80,6 +76,11 @@ install -D -p -m 0644 50-virtiofsd.json %{buildroot}%{_datadir}/qemu/vhost-user/
 %{_datadir}/qemu/vhost-user/50-qemu-virtiofsd.json
 
 %changelog
+* Thu Dec 04 2025 Miroslav Rezanina <mrezanin@redhat.com> - 1.13.3-1
+- Rebase to 1.13.3 [RHEL-133034]
+- Resolves: RHEL-133034
+  (Rebase virtiofsd to latest version for RHEL 10.2)
+
 * Mon Jun 16 2025 Miroslav Rezanina <mrezanin@redhat.com> - 1.13.2-1
 - Rebase to 1.13.2 [RHEL-97010]
 - Resolves: RHEL-97010
